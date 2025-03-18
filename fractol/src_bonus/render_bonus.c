@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmouafik <rmouafik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 16:53:53 by rmouafik          #+#    #+#             */
-/*   Updated: 2025/03/17 17:11:15 by rmouafik         ###   ########.fr       */
+/*   Created: 2025/03/17 16:55:26 by rmouafik          #+#    #+#             */
+/*   Updated: 2025/03/18 14:14:13 by rmouafik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
-int	mandelbrot(double cr, double ci)
+int	mandelbrot(double cr, double ci, t_frac *fractol)
 {
 	double (zr), (zi), (tmp);
-	int (i), (max_i);
+	int (i);
 	zi = 0;
 	zr = 0;
 	i = 0;
-	max_i = 100;
-	while (i < max_i)
+	while (i < fractol->depth)
 	{
 		if (zr * zr + zi * zi >= 4)
 			break ;
@@ -43,11 +42,11 @@ void	draw_mandelbrot(t_frac *fractol)
 		while (x < WIDTH)
 		{
 			cr = (-2.0 + ((x / (float)WIDTH) * (2.0 - (-2.0))))
-				* fractol->zoom;
+				* fractol->zoom + fractol->arrow_x;
 			ci = (2.0 - ((y / (float)HEIGHT) * (2.0 - (-2.0))))
-				* fractol->zoom;
-			iter = mandelbrot(cr, ci);
-			put_pixel(fractol, x, y, put_color(iter, 100));
+				* fractol->zoom + fractol->arrow_y;
+			iter = mandelbrot(cr, ci, fractol);
+			put_pixel(fractol, x, y, put_color(iter, fractol->depth));
 			x++;
 		}
 		y++;
@@ -59,11 +58,9 @@ int	julia(double zr, double zi, t_frac *fractol)
 {
 	double	tmp;
 	int		iter;
-	int		max_iter;
 
 	iter = 0;
-	max_iter = 100;
-	while (iter < max_iter)
+	while (iter < fractol->depth)
 	{
 		if (zr * zr + zi * zi >= 4)
 			break ;
@@ -86,11 +83,11 @@ void	draw_julia(t_frac *fractol)
 		while (x < WIDTH)
 		{
 			zr = (-2.0 + ((x / (double)WIDTH) * (2.0 - (-2.0))))
-				* fractol->zoom;
+				* fractol->zoom + fractol->arrow_x;
 			zi = (2.0 - ((y / (double)HEIGHT) * (2.0 - (-2.0))))
-				* fractol->zoom;
+				* fractol->zoom + fractol->arrow_y;
 			iter = julia(zr, zi, fractol);
-			put_pixel(fractol, x, y, put_color(iter, 100));
+			put_pixel(fractol, x, y, put_color(iter, fractol->depth));
 			x++;
 		}
 		y++;

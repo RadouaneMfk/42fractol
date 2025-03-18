@@ -1,21 +1,19 @@
-NAME = fractol
-SRC = src/fractol.c src/fractol_utils.c src/events.c src/render.c
+NAME = ../fractol
+SRC = events_bonus.c fractol_bonus.c fractol_utils_bonus.c render_bonus.c burnship_bonus.c
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-MLX = -Lmlx -lmlx -framework OpenGL -framework AppKit
+MLX = -L../mlx -lmlx -framework OpenGL -framework AppKit
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(MLX) $(OBJ) -o $(NAME)
-%.o: %.c src/fractol.h
+%.o: %.c fractol_bonus.h
 	$(CC) $(CFLAGS) -c $< -o $@
-bonus:
-	@make all -C src_bonus
+
 clean:
 	rm -f $(OBJ)
-	make clean -C src_bonus
 
 fclean: clean
 	rm -f $(NAME)

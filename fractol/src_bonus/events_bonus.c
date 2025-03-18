@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   events_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmouafik <rmouafik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 16:53:57 by rmouafik          #+#    #+#             */
-/*   Updated: 2025/03/17 13:23:25 by rmouafik         ###   ########.fr       */
+/*   Created: 2025/03/17 16:56:47 by rmouafik          #+#    #+#             */
+/*   Updated: 2025/03/18 13:55:07 by rmouafik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 int	x_notify(t_frac *fractol)
 {
@@ -24,6 +24,24 @@ int	events_key(int keycode, t_frac *fractol)
 {
 	if (keycode == 53)
 		x_notify(fractol);
+	if (keycode == 69)
+		fractol->depth += 10;
+	if (keycode == 78)
+		fractol->depth -= 10;
+	if (keycode == 123)
+		fractol->arrow_x += 0.05;
+	if (keycode == 124)
+		fractol->arrow_x -= 0.05;
+	if (keycode == 125)
+		fractol->arrow_y += 0.05;
+	if (keycode == 126)
+		fractol->arrow_y -= 0.05;
+	if (fractol->flag == 0)
+		draw_mandelbrot(fractol);
+	else if (fractol->flag == 1)
+		draw_julia(fractol);
+	else
+		draw_burn(fractol);
 	return (0);
 }
 
@@ -37,8 +55,10 @@ int	events_mouse(int button, int x, int y, t_frac *fractol)
 		fractol->zoom *= 0.9;
 	if (fractol->flag == 0)
 		draw_mandelbrot(fractol);
-	else
+	else if (fractol->flag == 1)
 		draw_julia(fractol);
+	else
+		draw_burn(fractol);
 	return (0);
 }
 

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol_utils.c                                    :+:      :+:    :+:   */
+/*   fractol_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmouafik <rmouafik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/14 18:12:25 by rmouafik          #+#    #+#             */
-/*   Updated: 2025/03/17 13:33:12 by rmouafik         ###   ########.fr       */
+/*   Created: 2025/03/17 16:53:56 by rmouafik          #+#    #+#             */
+/*   Updated: 2025/03/17 16:54:40 by rmouafik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
