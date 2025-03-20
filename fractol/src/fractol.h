@@ -6,7 +6,7 @@
 /*   By: rmouafik <rmouafik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:07:02 by rmouafik          #+#    #+#             */
-/*   Updated: 2025/03/17 16:53:22 by rmouafik         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:00:56 by rmouafik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_frac
 }	t_frac;
 
 void		put_pixel(t_frac *fractol, int x, int y, int color);
+int			parse_j(char *real_str, char *imag_str, double *real, double *imag);
 int			put_color(int i, int max_i);
 int			mandelbrot(double cr, double ci);
 void		draw_mandelbrot(t_frac *fractol);

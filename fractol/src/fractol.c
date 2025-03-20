@@ -6,7 +6,7 @@
 /*   By: rmouafik <rmouafik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 14:07:12 by rmouafik          #+#    #+#             */
-/*   Updated: 2025/03/18 14:18:46 by rmouafik         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:01:21 by rmouafik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ int	main(int ac, char *av[])
 	else if (ac == 4 && ft_strncmp(av[1], "julia", 6) == 0)
 	{
 		fractol.flag = 1;
-		fractol.julia_r = str_to_double(av[2]);
-		fractol.julia_i = str_to_double(av[3]);
+		parse_j(av[2], av[3], &fractol.julia_r, &fractol.julia_i);
 		draw_julia(&fractol);
 	}
 	else

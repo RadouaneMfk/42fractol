@@ -1,5 +1,5 @@
 NAME = fractol
-SRC = src/fractol.c src/fractol_utils.c src/events.c src/render.c
+SRC = src/fractol.c src/fractol_utils.c src/events.c src/render.c src/fractol_utils2.c
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MLX = -Lmlx -lmlx -framework OpenGL -framework AppKit

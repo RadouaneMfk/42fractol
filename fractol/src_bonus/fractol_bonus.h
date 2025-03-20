@@ -6,7 +6,7 @@
 /*   By: rmouafik <rmouafik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 16:46:02 by rmouafik          #+#    #+#             */
-/*   Updated: 2025/03/17 18:00:35 by rmouafik         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:01:07 by rmouafik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,5 @@ double		str_to_double(char *str);
 void		hooks(t_frac *fractol);
 void		draw_julia(t_frac *fractol);
 void		draw_burn(t_frac *fractol);
+int			parse_j(char *real_str, char *imag_str, double *real, double *imag);
 #endif

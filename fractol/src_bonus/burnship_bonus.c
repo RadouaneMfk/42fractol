@@ -6,7 +6,7 @@
 /*   By: rmouafik <rmouafik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:59:04 by rmouafik          #+#    #+#             */
-/*   Updated: 2025/03/18 14:14:01 by rmouafik         ###   ########.fr       */
+/*   Updated: 2025/03/18 15:05:01 by rmouafik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	draw_burn(t_frac *fractol)
 		x = 0;
 		while (x < WIDTH)
 		{
-			cr = (-2.0 + ((x / (float)WIDTH) * (2.0 - (-2.0))))
+			cr = (-2.0 + ((x / (double)WIDTH) * (2.0 - (-2.0))))
 				* fractol->zoom + fractol->arrow_x;
-			ci = (2.0 - ((y / (float)HEIGHT) * (2.0 - (-2.0))))
+			ci = (2.0 - ((y / (double)HEIGHT) * (2.0 - (-2.0))))
 				* fractol->zoom + fractol->arrow_y;
 			iter = burn(cr, ci, fractol);
 			put_pixel(fractol, x, y, put_color(iter, fractol->depth));

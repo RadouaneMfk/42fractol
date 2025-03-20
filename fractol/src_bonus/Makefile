@@ -1,5 +1,5 @@
 NAME = ../fractol
-SRC = events_bonus.c fractol_bonus.c fractol_utils_bonus.c render_bonus.c burnship_bonus.c
+SRC = events_bonus.c fractol_bonus.c fractol_utils_bonus.c render_bonus.c burnship_bonus.c fractol_utils2_bonus.c
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MLX = -L../mlx -lmlx -framework OpenGL -framework AppKit

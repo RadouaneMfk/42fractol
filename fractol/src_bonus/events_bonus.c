@@ -6,7 +6,7 @@
 /*   By: rmouafik <rmouafik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 16:56:47 by rmouafik          #+#    #+#             */
-/*   Updated: 2025/03/18 13:55:07 by rmouafik         ###   ########.fr       */
+/*   Updated: 2025/03/18 18:19:30 by rmouafik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int	events_key(int keycode, t_frac *fractol)
 	if (keycode == 78)
 		fractol->depth -= 10;
 	if (keycode == 123)
-		fractol->arrow_x += 0.05;
+		fractol->arrow_x += 0.05 * fractol->zoom;
 	if (keycode == 124)
-		fractol->arrow_x -= 0.05;
+		fractol->arrow_x -= 0.05 * fractol->zoom;
 	if (keycode == 125)
-		fractol->arrow_y += 0.05;
+		fractol->arrow_y += 0.05 * fractol->zoom;
 	if (keycode == 126)
-		fractol->arrow_y -= 0.05;
+		fractol->arrow_y -= 0.05 * fractol->zoom;
 	if (fractol->flag == 0)
 		draw_mandelbrot(fractol);
 	else if (fractol->flag == 1)
